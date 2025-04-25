@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 339d0e95b4fb91041b00372c6a582a3d
+guid: 499a5ab1a0f6092469a2d4fab7c730b8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7709301006139028314
-    second: Trays_0
+      213: 3252148265161432393
+    second: Trays design two_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1100
+  spritePixelsToUnits: 1200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Trays_0
+      name: Trays design two_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 17
-        width: 680
-        height: 704
+        x: 9
+        y: 3
+        width: 893
+        height: 890
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ac858e949f030590800000000000000
-      internalID: -7709301006139028314
+      spriteID: 94d99d5dd93f12d20800000000000000
+      internalID: 3252148265161432393
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Trays_0: -7709301006139028314
+      Trays design two_0: 3252148265161432393
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
