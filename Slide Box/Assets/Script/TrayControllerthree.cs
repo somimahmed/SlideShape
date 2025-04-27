@@ -7,7 +7,6 @@ public class TrayControllerthree : MonoBehaviour
     private Vector3 offset;
     private Camera cam;
     public Grid grid;
-    private bool isColliding = false;
     Vector3 PreviusPosition;
 
     void Start()
@@ -25,7 +24,7 @@ public class TrayControllerthree : MonoBehaviour
 
             if (touch.phase == TouchPhase.Began)
             {
-                TryClickObject(touchPosition);
+                TryClickObject();
             }
             else if (touch.phase == TouchPhase.Moved)
             {
@@ -38,26 +37,26 @@ public class TrayControllerthree : MonoBehaviour
         }
     }
 
-    void TryClickObject(Vector3 touchPosition)
+    void TryClickObject()
     {
-        if (IsPointerOverUI()) return;
+    if (IsPointerOverUI()) return;
 
-        RaycastHit2D hit = Physics2D.Raycast(touchPosition, Vector2.zero);
+      Vector3 worldTouchPos = GetTouchWorldPosition();
+      RaycastHit2D hit = Physics2D.Raycast(worldTouchPos, Vector2.zero);
 
-        if (hit.collider != null && hit.collider.gameObject == gameObject)
-        {
-            // Only THIS object is touched
-            isDragging = true;
-            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            offset = transform.position - GetMouseWorldPos();
-        }
+      if (hit.collider != null && hit.collider.gameObject == gameObject)
+      {
+        isDragging = true;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        offset = transform.position - worldTouchPos;
+      }
     }
 
     void DragObject()
     {
         if (!isDragging) return;
 
-        Vector3 target = GetMouseWorldPos() + offset;
+        Vector3 target = GetTouchWorldPosition() + offset;
         GetComponent<Rigidbody2D>().MovePosition(target);
     }
 
@@ -78,12 +77,11 @@ public class TrayControllerthree : MonoBehaviour
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
     }
 
-    Vector3 GetMouseWorldPos()
+    Vector3 GetTouchWorldPosition()
     {
-        Touch touch = Input.GetTouch(0);
-        Vector3 TouchPos = touch.position;
-        TouchPos.z = -cam.transform.position.z;
-        return cam.ScreenToWorldPoint(TouchPos);
+        Vector3 touchPos = Input.GetTouch(0).position;
+         touchPos.z=10f;
+        return cam.ScreenToWorldPoint(touchPos);
     }
 
     bool IsPointerOverUI()
